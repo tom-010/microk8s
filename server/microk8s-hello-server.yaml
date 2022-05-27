@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microk8s-hello-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microk8s-hello-server
+  template:
+    metadata:
+      labels:
+        app: microk8s-hello-server
+    spec:
+      containers:
+      - name: microk8s-hello-server
+        image: localhost:32000/microk8s-hello-server:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 50051
+          name: grpc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  selector:
+    app: microk8s-hello-server
+  ports:
+  - port: 50051
+    targetPort: 50051
+    name: grpc
+  type: NodePort
