@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd server
-go run server.go
+./scripts/build_server.sh
+docker run -p 50051:50051 microk8s-hello-server
