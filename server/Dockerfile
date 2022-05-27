@@ -19,8 +19,8 @@ RUN CGO_ENABLED=0 go build -o /bin/grpc-hello-server
 
 # Build stage II : Go binaries are self-contained executables.
 FROM scratch
-COPY --from=build /bin/grpc-user-server /bin/grpc-user-server
+COPY --from=build /bin/grpc-hello-server /bin/grpc-hello-server
 
 
-ENTRYPOINT ["/bin/grpc-user-server"]
+ENTRYPOINT ["/bin/grpc-hello-server"]
 EXPOSE 50051

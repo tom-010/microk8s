@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: microk8s-hello-client
+spec:
+  completions: 5
+  parallelism: 10
+  template:
+    spec:
+      containers:
+      - name: microk8s-hello-client
+        image: localhost:32000/microk8s-hello-client:latest
+      restartPolicy: Never
+  backoffLimit: 4

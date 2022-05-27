@@ -32,7 +32,7 @@ func main() {
 	}
 	log.Printf(r.Message)
 
-	greetingStream, _ := c.SayRepeatHello(ctx, &pb.RepeatHelloRequest{Name: "Tom", Count: 5})
+	greetingStream, _ := c.SayRepeatHello(ctx, &pb.RepeatHelloRequest{Name: "Tom", Count: 50})
 
 	for {
 		r, err = greetingStream.Recv()
