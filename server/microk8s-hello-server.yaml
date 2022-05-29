@@ -33,9 +33,10 @@ spec:
   selector:
     app: microk8s-hello-server
   ports:
-  - port: 50051
-    targetPort: 50051
-    name: grpc
+    - protocol: TCP
+      port: 50051
+      targetPort: 50051
+      nodePort: 30300
   type: NodePort
 
 ---
