@@ -53,14 +53,7 @@ spec:
   - host: foo.bar.com
     http:
       paths:
-      - path: /foo
-        pathType: Prefix
-        backend:
-          service:
-            name: hello
-            port:
-              number: 50051
-      - path: /bar
+      - path: /
         pathType: Prefix
         backend:
           service:
