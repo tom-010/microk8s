@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	address = "hello:32353"
+	address = "foo.bar.com/foo:80"
 )
 
 func main() {
